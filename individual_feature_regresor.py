@@ -1,5 +1,5 @@
 """
-Version 0.201904241444
+Version 0.201904261100
 Created by Bryan saldivar
 https://twitter.com/bsaldivaremc2
 #How to use:
@@ -71,7 +71,9 @@ report_df = pd.DataFrame(report_df)
 
 """
 from sklearn.linear_model import LinearRegression,Ridge,Lasso,MultiTaskLasso,ElasticNet,MultiTaskElasticNet,LassoLars
-from sklearn.linear_model import OrthogonalMatchingPursuit,SGDRegressor
+from sklearn.linear_model import OrthogonalMatchingPursuit
+from sklearn.linear_model import BayesianRidge,ARDRegression,SGDRegressor,PassiveAggressiveRegressor
+from sklearn.linear_model import RANSACRegressor,TheilSenRegressor,HuberRegressor
 import scipy
 from skopt import gp_minimize
 import skopt
@@ -90,7 +92,9 @@ class FeatureRegressor:
         """
         self.available_regressors = {'linear_regression':LinearRegression,'ridge':Ridge,'lasso':Lasso,
         'multi_task_lasso':MultiTaskLasso,'elastic_net':ElasticNet,'multi_task_elastic_net':MultiTaskElasticNet,
-        'lasso_lars':LassoLars,'orthogonal_matching_pursuit':OrthogonalMatchingPursuit,'sgd':SGDRegressor}
+        'lasso_lars':LassoLars,'orthogonal_matching_pursuit':OrthogonalMatchingPursuit,
+        'bayesian_ridge':BayesianRidge,'ard':ARDRegression,'sgd':SGDRegressor,'passive_aggressive':PassiveAggressiveRegressor,
+        'ransac':RANSACRegressor,'theil_sen':TheilSenRegressor,'huber':HuberRegressor}
         self.X = ix
         self.y = iy
         self.validate_y()
