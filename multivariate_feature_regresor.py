@@ -77,6 +77,7 @@ from skopt import gp_minimize
 import skopt
 from skopt.space import Real, Integer, Categorical
 import numpy as np
+import pandas as pd
 class MFeatureRegressor:
     def __init__(self,ix,iy,regressors,target_labels=[],
         test_split = 0.25, repeat=5,train_weight=1,test_weight=2,skopt_kargs={'n_calls':10},v=False):
